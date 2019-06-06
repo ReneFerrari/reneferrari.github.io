@@ -285,7 +285,7 @@ canvas {
 .logo-img {
   margin: 1vmax;
   border-radius: 50%;
-  max-width: 8vmax;
+  width: 150px;
 }
 
 .logo {
@@ -416,7 +416,7 @@ canvas {
     left: 20px;
     position: absolute;
     img {
-      width: 50px;
+      width: 150px;
       height: auto;
     }
     &:after {
