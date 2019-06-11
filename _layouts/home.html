@@ -22,22 +22,26 @@ layout: compress
     </div>
     <canvas></canvas>
   </div>
-
-  <div class="block-right">
-    <a href="{{ site.url }}/posts" title="posts" class="posts-menu-icon"></a>
-    <span class="posts-link">POSTS</span>
-    <a title="project" class="projects-menu-icon">
-      <span></span>
-    </a>
-    <span class="projects-link">PROJECTS</span>
-    <div class="content">
-      <div class="about-info">
-        {{ content }}
-      </div>
-    </div>
+  <div style="overflow-y:auto; height:100%; width:60%;">
+  <div class="block-right" style="background-color: #ececec52; width:100%;">
+    <div class="content" style="padding-top:0px;">
+      <ul class="posts-list">
+      {% for post in site.posts %}
+        <li>
+          <h2>
+            <a href="{{ site.url }}{{ post.url }}" class="post-title">
+              <span>{{ post.title | markdownify | remove: "<p>" | remove: "</p>" }}</span>
+            </a>
+            <span class="date">{{ post.date | date: '%d %b %Y' }}</span>
+          </h2>
+          <p>{{ post.excerpt | strip_html | truncatewords:10 }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+  </div>
+</div>
   </div>
   {% include overlay.html %}
   {% include scripts.html %}
-  <script src="{{ site.url }}/assets/js/canvas.js"></script>
 </body>
 </html>

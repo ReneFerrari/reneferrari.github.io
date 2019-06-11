@@ -11,9 +11,22 @@
   overflow-y: auto;
 }
 
-.block-left,
-.block-right {
+.block-left {
   width: 40%;
+  height: 100%;
+  position: relative;
+  display: table;
+  > div {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .content {
+    height: 100%;
+  }
+}
+
+.block-right {
+  width: 60%;
   height: 100%;
   position: relative;
   display: table;
@@ -328,7 +341,7 @@ canvas {
   p {
     font-size: 21px;
     line-height: 30px;
-    margin: 10px 0;
+    margin: 0px 0;
     padding-top: 25px;
   }
   ul {
@@ -357,6 +370,7 @@ canvas {
   color: $white;
   h1 {
     font-size: 24px;
+    letter-spacing: 1px;
     font-weight: bold;
   }
   h2 {
@@ -446,7 +460,6 @@ canvas {
   > li {
     margin-bottom: 23px;
     padding-bottom: 20px;
-    border-bottom: 1px solid darken($white, 8.2353);
     list-style: none;
     &:last-child {
       border: none;
@@ -459,7 +472,7 @@ canvas {
       color: darken($white, 40);
     }
     .date {
-      color: #399f62;
+      color: #75a588;
       float: right;
       display: inline-block;
       font-size: 15px;
@@ -528,7 +541,7 @@ canvas {
     display: block;
   }
   a:not(.btn):not(.pagination_pager) {
-    color: #399f62;
+    color: #4dbe7a;
     border-bottom: 1px dotted $green;
   }
   ul,
