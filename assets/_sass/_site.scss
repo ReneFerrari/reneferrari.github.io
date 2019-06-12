@@ -482,9 +482,6 @@ canvas {
     .post-title {
       display: inline-block;
       max-width: 75%;
-      &:hover span {
-        border-bottom: 1px dotted $green;
-      }
     }
   }
   .tags li > a {
@@ -542,7 +539,6 @@ canvas {
   }
   a:not(.btn):not(.pagination_pager) {
     color: #4dbe7a;
-    border-bottom: 1px dotted $green;
   }
   ul,
   ol {
