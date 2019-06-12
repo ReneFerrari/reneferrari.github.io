@@ -81,6 +81,19 @@ url: //cooldude.github.io
 url:
 {% endhighlight %}
 
+{% highlight kotlin %}
+data class test(val name: String, val xyz: Int)
+fun displayProduct(product: Array) {
+    println("Product of two matrices is: ")
+    for (row in product) {
+        for (column in row) {
+            print("$column    ")
+        }
+        println()
+    }
+}
+{% endhighlight %}
+
 #### logo
 Your site's logo. It will be shown on homepage. Also used for twitter meta tags.
 
