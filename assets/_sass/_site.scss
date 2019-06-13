@@ -11,6 +11,10 @@
   overflow-y: auto;
 }
 
+.div-block-right {
+  height: 100%;
+}
+
 .block-left {
   width: 40%;
   height: 100%;
@@ -42,6 +46,12 @@
 .inactive {
   pointer-events: none;
   pointer: default;
+}
+
+.content-post {
+  padding: 60px;
+  width: 60%;
+  margin: 0 auto;
 }
 
 .content {
@@ -700,6 +710,13 @@ canvas {
   }
   .share-buttons span {
     display: none;
+  }
+  .div-block-right {
+    height: auto;
+  }
+  .content-post {
+    width: 80%;
+    padding: 10px;
   }
 }
 

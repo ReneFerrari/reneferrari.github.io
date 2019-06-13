@@ -10,7 +10,7 @@ layout: compress
         <a href="{{ site.url }}">
             <h3 style="margin-left: 56px;">Home</h3>
         </a>
-      <div class="inner-post content" style="max-width: 50%; width: 50%; padding-top: 0px;">
+      <div class="inner-post content-post" style="padding-top: 0px;">
         <h1 style="text-align: center; font-size: 50px;">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>
         <div class="date-highlight">{% if page.date %}{{ page.date | date: '%d %b %Y' }}{% else %}&#x2756;{% endif %}</div>
         {{ content }}
