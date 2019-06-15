@@ -34,7 +34,7 @@ layout: compress
             </a>
             <span class="date">{{ post.date | date: '%d %b %Y' }}</span>
           </h2>
-          <p>{{ post.excerpt | strip_html | truncatewords:10 }}</p>
+          <p>{{ post.excerpt | strip_html }}</p>
         </li>
         {% endfor %}
       </ul>
