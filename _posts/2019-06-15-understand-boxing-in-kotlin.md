@@ -38,7 +38,7 @@ As you can see it is advisable to always use the corresponding class when creati
 ## Generics
 ### Collections
 Unfortunately Collections do not support primitive types at all due to limitations of Generics. This has historical reasons: Generics were only introduced in 2004, 9 years after 
-Javas initial release. Generics have been implemented with type erasure, so during runtime an `ArrayList<Integer>` would become `ArrayList<Object>`. Therefore whenever you want to add a value it has to be casted to `Object` and when you retrieve a value it has to be casted to `Integer`. Since primitives can't be casted to Object nor can Object be casted to a primitive Generics of primitive types can't exist. This whole design approach was chosen to not break compatibility with existing Java code.
+Javas initial release. Generics have been implemented with type erasure, so during runtime an `ArrayList<Integer>` would become `ArrayList<Object>`. Therefore whenever you want to add a value it has to be casted to `Object` and when you retrieve a value it has to be casted to `Integer`. Since primitives can't be casted to object (nor can object be casted to a primitive) Generics of primitive types can't exist. This whole design approach was chosen back then to not break compatibility with existing Java code.
 
 Here are some examples:
 {% highlight kotlin %}
