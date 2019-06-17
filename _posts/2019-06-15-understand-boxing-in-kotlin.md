@@ -35,8 +35,7 @@ There are two things to notice here:
 
 As you can see it is advisable to always use the corresponding class when creating a primitive array whenever possible. They were specifically created to avoid the overhead of boxing. Of course, you cannot store `null` in it and if you are required to do so, you would have to - sadly - fall back and use `Array<Int?>`.
 
-## Generics
-### Collections
+## Collections
 Unfortunately Collections do not support primitive types at all due to limitations of Generics. They have been implemented with type erasure, so during runtime an `ArrayList<Integer>` would become `ArrayList<Object>`. Therefore whenever you want to add a value it has to be casted to `Object` and when you retrieve a value it has to be casted to `Integer`. Since primitives can't be casted to object (nor can an object be casted to a primitive) Generics of primitive types can't exist. This whole design approach was chosen back in 2004 (9 years after Javas initial release) to not break compatibility with existing Java code.
 
 Here are some examples:
@@ -58,7 +57,7 @@ List z = CollectionsKt.mutableListOf(new Integer[]{5, 5, 5});
 
 As you can see all of them lead to an `Integer[]` and therefore to boxing of the values.
 
-### Lambdas
+## Lambdas
 Lambdas in Kotlin are really great and useful, but they can lead to a lot of unneeded boxing and unboxing. Consider this function `foo` taking another function `bar` as argument:
 
 {% highlight kotlin %}
