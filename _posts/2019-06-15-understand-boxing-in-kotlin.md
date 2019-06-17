@@ -5,7 +5,7 @@ date:   2016-06-15
 excerpt: "What it is, when it happens and how to deal with it."
 ---
 ## Introduction
-Boxing describes the process of converting a primitive value to an object and unboxing therefore the inverse: object to primitve. Autoboxing therefore refers to the process in which the compiler will handle this automatically for you. This leads to a decrease in performance when accessing the underlying value.
+Boxing describes the process of converting a primitive value to an object and unboxing therefore the inverse: object to primitve. Autoboxing refers to the process in which the compiler will handle this automatically for you. This leads to a decrease in performance when accessing the underlying value.
 
 Note: This article only covers Kotlin being ran on the JVM focusing on Android.
 
