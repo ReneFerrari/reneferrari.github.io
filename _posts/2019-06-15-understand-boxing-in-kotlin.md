@@ -5,7 +5,14 @@ date:   2016-06-15
 excerpt: "What it is, when it happens and how to deal with it."
 ---
 ## Introduction
-Boxing describes the process of converting a primitive value to an object and unboxing therefore the inverse: object to primitve. Autoboxing refers to the process in which the compiler will handle this automatically for you. Whilst this is very handy (example: `val x: Integer = 42` can be written without boxing the primitve value yourself) it unfortunately leads to a decrease in performance. 
+Boxing describes the process of converting a primitive value to an object and unboxing therefore the inverse: object to primitve. Autoboxing refers to the process in which the compiler will handle this automatically for you. Whilst this is very handy it unfortunately leads to a decrease in performance. An example of autoboxing would be the following:
+
+{% highlight java %}
+Integer x = 42;
+Integer y = Integer.valueOf(42);
+{% endhighlight %}
+
+Both of this lines do the exact same thing internally. In the first line the primitive int value 42 is autboxed and in the second line I manually box it.
 
 Note: This article only covers Kotlin being ran on the JVM.
 
