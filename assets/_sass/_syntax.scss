@@ -2,8 +2,7 @@ div.highlighter-rouge, figure.highlight {
 	position: relative;
 	display: block;
 	margin-bottom: 2em;
-	background-color: #f0f0f0;
-	color: #586e75;
+	background-color: #f0f0f0;	
 	font-family: $code-font;
 	font-size: 0.9em;
 	border-radius: 8px;
@@ -18,7 +17,7 @@ pre.highlight {
 .highlight .err { color: #dc322f } /* Error */
 .highlight .k { color: #6c71c4 } /* Keyword */
 .highlight .l { color: #cb4b16 } /* Literal */
-.highlight .n { color: #002b36 } /* Name */
+.highlight .n { color: #57b5cc } /* Name */
 .highlight .o { color: #2aa198 } /* Operator */
 .highlight .p { color: #002b36 } /* Punctuation */
 .highlight .cm { color: #839496 } /* Comment.Multiline */
