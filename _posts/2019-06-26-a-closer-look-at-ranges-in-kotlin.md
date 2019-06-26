@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[WIP] A closer look at ranges in Kotlin"
-date:   2016-06-15
+date:   2016-06-26
 excerpt: "Why to use them, why they are efficent, how they are implemented."
 ---
 ## Basics
