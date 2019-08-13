@@ -516,12 +516,12 @@ canvas {
 
 .inner-post {
   h1 {
-    font-size: 3em;
+    font-size: 2.5em;
     line-height: 2em;
     margin-bottom: 1em;
   }
   h2 {
-    font-size: 2em;
+    font-size: 1.8em;
     line-height: 1em;
     margin-top: 1.2em;
     margin-bottom: 0.6em;
@@ -554,11 +554,13 @@ canvas {
   ol {
     padding-left: 1.5em;
     > li {
+      color: #6c6c6c;
       position: relative;
-      margin-bottom: 0.7em;
-      font-size: 1.2em;
+      font-size: 1.1em;
+      margin-bottom: 0.4em;
+      margin-top: 0.4em;
       &:first-child {
-        margin-top: 1.1em;
+        margin-top: 0.2em;
       }
     }
   }
@@ -744,9 +746,6 @@ canvas {
     li {
       font-size: 16px;
       line-height: 24px;
-    }
-    ul > li {
-      margin-bottom: 10px;
     }
   }
   .date-highlight {
