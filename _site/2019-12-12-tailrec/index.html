@@ -1,0 +1,75 @@
+<h2 id="introduction">Introduction</h2>
+<p><code class="highlighter-rouge">tailrec</code> is a keyword which enables optimization of tail recursive functions. These are functions that have a recursive call as their last statement. Instead of creating a new stack entry for each recursive call, functions marked as tailrec “reuse” the existing one.</p>
+
+<p>A simple example:</p>
+
+<figure class="highlight"><pre><code class="language-kotlin" data-lang="kotlin"><span class="k">tailrec</span> <span class="k">fun</span> <span class="nf">factorial</span><span class="p">(</span><span class="nv">start</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="nv">accumulator</span><span class="p">:</span> <span class="nc">Int</span> <span class="p">=</span> <span class="m">1</span><span class="p">):</span> <span class="nc">Int</span> <span class="p">=</span> <span class="k">when</span> <span class="p">(</span><span class="n">start</span><span class="p">)</span> <span class="p">{</span>
+    <span class="m">1</span> <span class="p">-&gt;</span> <span class="n">accumulator</span>
+    <span class="k">else</span> <span class="p">-&gt;</span> <span class="n">factorial</span><span class="p">(</span><span class="n">start</span> <span class="p">-</span> <span class="m">1</span><span class="p">,</span> <span class="n">accumulator</span> <span class="p">*</span> <span class="n">start</span><span class="p">)</span>
+<span class="p">}</span></code></pre></figure>
+
+<h2 id="comparison-to-a-regular-recursive-function">Comparison to a regular recursive function</h2>
+<p>The previously shown function could be written without tailrec - like this:</p>
+
+<figure class="highlight"><pre><code class="language-kotlin" data-lang="kotlin"><span class="k">fun</span> <span class="nf">factorialRegular</span><span class="p">(</span><span class="nv">start</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="nv">accumulator</span><span class="p">:</span> <span class="nc">Int</span> <span class="p">=</span> <span class="m">1</span><span class="p">):</span> <span class="nc">Int</span> <span class="p">=</span> <span class="k">when</span> <span class="p">(</span><span class="n">start</span><span class="p">)</span> <span class="p">{</span>
+    <span class="m">1</span> <span class="p">-&gt;</span> <span class="n">accumulator</span>
+    <span class="k">else</span> <span class="p">-&gt;</span> <span class="n">factorialRegular</span><span class="p">(</span><span class="n">start</span> <span class="p">-</span> <span class="m">1</span><span class="p">,</span> <span class="n">accumulator</span> <span class="p">*</span> <span class="n">start</span><span class="p">)</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>To understand how the tailrec version is “reusing” the stack entry we must take a look at the bytecode decompiled to Java:</p>
+
+<figure class="highlight"><pre><code class="language-kotlin" data-lang="kotlin"><span class="c1">// tailrec version</span>
+<span class="k">public</span> <span class="n">static</span> <span class="k">final</span> <span class="n">int</span> <span class="n">factorial</span><span class="p">(</span><span class="n">int</span> <span class="n">start</span><span class="p">,</span> <span class="n">int</span> <span class="n">accumulator</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">while</span><span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">switch</span><span class="p">(</span><span class="n">start</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">case</span> <span class="m">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">accumulator</span><span class="p">;</span>
+        <span class="nv">default</span><span class="p">:</span>
+        <span class="nc">int</span> <span class="n">var10000</span> <span class="p">=</span> <span class="n">start</span> <span class="p">-</span> <span class="m">1</span><span class="p">;</span>
+        <span class="n">accumulator</span> <span class="p">*=</span> <span class="n">start</span><span class="p">;</span>
+        <span class="n">start</span> <span class="p">=</span> <span class="n">var10000</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-kotlin" data-lang="kotlin"><span class="c1">// regular version</span>
+<span class="k">public</span> <span class="n">static</span> <span class="k">final</span> <span class="n">int</span> <span class="n">factorialRegular</span><span class="p">(</span><span class="n">int</span> <span class="n">start</span><span class="p">,</span> <span class="n">int</span> <span class="n">accumulator</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">int</span> <span class="n">var10000</span><span class="p">;</span>
+    <span class="n">switch</span><span class="p">(</span><span class="n">start</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">case</span> <span class="m">1</span><span class="p">:</span>
+        <span class="n">var10000</span> <span class="p">=</span> <span class="n">accumulator</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="nv">default</span><span class="p">:</span>
+        <span class="nc">var10000</span> <span class="p">=</span> <span class="n">factorialRegular</span><span class="p">(</span><span class="n">start</span> <span class="p">-</span> <span class="m">1</span><span class="p">,</span> <span class="n">accumulator</span> <span class="p">*</span> <span class="n">start</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">var10000</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>You will immediately notice that a function marked as tailrec is actually not recursive (on a decompiled Java code level).
+Instead the whole magic behind it is just an endless while loop.</p>
+
+<h2 id="more-in-depth">More in depth</h2>
+<p>What I have already explained should be sufficient knowledge for day to day programming. However there are still some unanswered questions:</p>
+<ul>
+  <li>Why doesn’t the compiler automatically optimize tailrec functions?</li>
+  <li>Why has the return type ((even for such a simple example like factorial calculation) be specified explicitly?</li>
+  <li>Why doesn’t Java support tailrec?</li>
+  <li>Why is a while(true) loop used instead of clearing the callstack?</li>
+  <li>What is mutual tail recursion?</li>
+  <li>Why doesn’t Kotlin support mutual tail recursion?</li>
+</ul>
+
+<h3 id="why-doesnt-the-compiler-automatically-optimize-tailrec">Why doesn’t the compiler automatically optimize tailrec?</h3>
+<p>I am just going to quote Roman Elizarov from the Jetbrains team:</p>
+<blockquote>
+  <p>Implicit tailrec optimization is very fragile and error-prone. People make mistakes and tailrec modifier is here to explicitly declare programmer’s intent to define a tailrec function. You (as a programmer) declare your intent and compiler verifies it. It also serves as a helpful piece of documentation for future readers and maintainers of your code. If they accidentally break it, they’ll get caught by compiler.</p>
+</blockquote>
+
+<h3 id="why-has-the-return-type-be-specified-explicitly">Why has the return type be specified explicitly?</h3>
+<p>One word: Speed.</p>
+
+<p>With a more complicated type inference the compiler could figure out the return type, but unfortunately this would cause the compilation process
+to be a lot slower.</p>
+
+<h3 id="why-doesnt-java-support-tailrec">Why doesn’t Java support tailrec?</h3>
