@@ -119,7 +119,7 @@ As you can clearly see the code of `foo` (including the lambda `bar`) is directl
 
 ## Key Takeaways
 There are only a few points which you should always remember:
-- Avoid nullability
+- Avoid nullability (if possible)
 - Prefer the dedicated classes for primitives when using arrays
 - Consider using an array instead of a collection (if appropriate)
 - Consider inlining of functions (if appropriate)
