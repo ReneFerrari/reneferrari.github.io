@@ -1,0 +1,127 @@
+---
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden px-4">
+  <!-- Ambient glow background -->
+  <div class="hero-glow" aria-hidden="true"></div>
+
+  <div class="relative z-10 max-w-4xl mx-auto text-center">
+    <!-- Eyebrow -->
+    <p class="font-mono text-accent text-xs sm:text-sm tracking-[0.2em] uppercase mb-6 opacity-80">
+      Linz, Austria · Android Engineer
+    </p>
+
+    <!-- Name -->
+    <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#f1f5f9] mb-6 leading-none tracking-tight">
+      Rene Ferrari
+    </h1>
+
+    <!-- Typewriter -->
+    <div class="flex items-center justify-center gap-1 text-xl sm:text-2xl text-accent font-mono mb-8 h-10">
+      <span id="typewriter" aria-live="polite"></span>
+      <span class="cursor" aria-hidden="true">|</span>
+    </div>
+
+    <!-- One-liner -->
+    <p class="text-[#94a3b8] text-lg sm:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+      Building scalable Android apps used by millions. Passionate about clean
+      architecture, modern tooling, and sharing knowledge.
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a
+        href="/blog"
+        class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg bg-accent text-[#0a0e1a] font-semibold text-sm hover:bg-accent/85 active:scale-95 transition-all"
+      >
+        Read the Blog
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </a>
+      <a
+        href="mailto:rene_ferrari@outlook.de"
+        class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg border border-accent/30 text-[#f1f5f9] text-sm font-medium hover:border-accent/60 hover:text-accent active:scale-95 transition-all"
+      >
+        Get in Touch
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 65% 55% at 15% 65%, rgba(56, 189, 248, 0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 65% at 85% 25%, rgba(56, 189, 248, 0.05) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 50% 50%, rgba(56, 189, 248, 0.03) 0%, transparent 70%);
+    animation: heroShift 12s ease-in-out infinite alternate;
+  }
+
+  @keyframes heroShift {
+    from { opacity: 0.6; transform: scale(1); }
+    to   { opacity: 1;   transform: scale(1.04); }
+  }
+
+  .cursor {
+    display: inline-block;
+    color: #38bdf8;
+    animation: blink 1.1s step-end infinite;
+    line-height: 1;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+</style>
+
+<script>
+  const roles = [
+    'Senior Android Developer',
+    'Architecture Co-Lead',
+    'Adjunct Lecturer',
+    'Conference Speaker',
+  ];
+
+  let roleIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let timeoutId: ReturnType<typeof setTimeout>;
+
+  const el = document.getElementById('typewriter');
+
+  function type() {
+    if (!el) return;
+    const current = roles[roleIndex];
+
+    if (isDeleting) {
+      el.textContent = current.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      el.textContent = current.substring(0, charIndex + 1);
+      charIndex++;
+    }
+
+    if (!isDeleting && charIndex === current.length) {
+      timeoutId = setTimeout(() => {
+        isDeleting = true;
+        type();
+      }, 2200);
+      return;
+    }
+
+    if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+    }
+
+    const speed = isDeleting ? 38 : 85;
+    timeoutId = setTimeout(type, speed);
+  }
+
+  type();
+</script>

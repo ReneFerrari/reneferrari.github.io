@@ -1,0 +1,83 @@
+---
+const groups = [
+  {
+    label: 'Languages',
+    skills: ['Kotlin', 'Java', 'Swift'],
+  },
+  {
+    label: 'Android',
+    skills: [
+      'Jetpack Compose',
+      'MVVM',
+      'Redux-style MVVM',
+      'Modularization',
+      'Hilt',
+      'Room',
+      'Retrofit',
+      'Apollo GraphQL',
+      'Flow / Coroutines',
+      'RxJava',
+      'XML',
+    ],
+  },
+  {
+    label: 'Testing & Tools',
+    skills: ['MockK', 'Turbine', 'Robolectric', 'Paparazzi', 'Screenshotbot', 'Jira', 'Jenkins', 'Bitbucket'],
+  },
+  {
+    label: 'Other',
+    skills: ['AI Tooling', 'Figma'],
+  },
+];
+---
+
+<section class="py-28 px-4 skills-section">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="fade-in mb-14">
+      <span class="font-mono text-accent text-xs tracking-[0.2em] uppercase">Stack</span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-[#f1f5f9] mt-2">Skills &amp; Technologies</h2>
+    </div>
+
+    <div class="space-y-8">
+      {groups.map(({ label, skills }) => (
+        <div class="fade-in">
+          <h3 class="font-mono text-[#94a3b8] text-xs uppercase tracking-[0.18em] mb-3">{label}</h3>
+          <div class="flex flex-wrap gap-2.5">
+            {skills.map((skill) => (
+              <span class="chip">{skill}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .skills-section {
+    background: rgba(17, 24, 39, 0.45);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.375rem 0.9rem;
+    border-radius: 9999px;
+    font-size: 0.8125rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: #cbd5e1;
+    background: rgba(56, 189, 248, 0.06);
+    border: 1px solid rgba(56, 189, 248, 0.14);
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    cursor: default;
+    user-select: none;
+  }
+
+  .chip:hover {
+    background: rgba(56, 189, 248, 0.12);
+    border-color: rgba(56, 189, 248, 0.3);
+    color: #f1f5f9;
+  }
+</style>

@@ -1,0 +1,128 @@
+---
+const experiences = [
+  {
+    company: 'Tractive',
+    role: 'Senior Android Developer',
+    period: '2020 — present',
+    meta: 'GPS & Wellness Tracking · 4M+ downloads',
+    highlights: [
+      'Co-led architecture: introduced Redux-style MVVM, improving testability and onboarding speed',
+      'Led key migrations: MVP→MVVM, XML→Jetpack Compose, RxJava→Flow, Groovy→Kotlin Script',
+      'Introduced Hilt for DI, restructured to monorepo, pushed modularization and test coverage from 0→30%',
+      'Sole Android dev on the pet wellness cross-functional team for two years',
+      'Led full refactor of the map screen (core feature): Compose migration, real-time path rendering, performance improvements',
+      'Led rework of the History feature end-to-end',
+      'Spoke at Droidcon Berlin (XML→Compose Maps) and GDG Linz (Figma→Compose with AI)',
+      'Spends ~20% of time on AI tooling: Figma-to-Compose generation, AI-enhanced templating, Slack→Jira auto-ticket generator',
+    ],
+  },
+  {
+    company: 'FH Hagenberg',
+    role: 'Adjunct Lecturer — Mobile Computing',
+    period: '2024 / 2025',
+    meta: '',
+    highlights: [
+      'Taught basic and advanced Android courses covering Activities, Fragments, MVVM, Compose, DI, Retrofit, Room, and Modularization',
+    ],
+  },
+  {
+    company: 'presono',
+    role: 'Mobile Developer',
+    period: '2017 — 2020',
+    meta: 'B2B Presentation CRM',
+    highlights: [
+      'Built the tablet and phone app from scratch as sole Android developer',
+      'Implemented offline-first architecture via WebView JS bridge injection',
+      'Took over iOS development in 2018, maintaining both platforms simultaneously',
+    ],
+  },
+  {
+    company: 'HTL Leonding',
+    role: 'Student',
+    period: '2011 — 2016',
+    meta: '',
+    highlights: [
+      'Final year project in collaboration with Runtastic — Fitness Progress Tracker using the Otsu algorithm for body outline detection and time-lapse video export',
+    ],
+  },
+];
+---
+
+<section class="py-28 px-4">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="fade-in mb-14">
+      <span class="font-mono text-accent text-xs tracking-[0.2em] uppercase">Career</span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-[#f1f5f9] mt-2">Experience</h2>
+    </div>
+
+    <div class="relative">
+      <!-- Vertical line -->
+      <div class="timeline-line" aria-hidden="true"></div>
+
+      <div class="space-y-10">
+        {experiences.map((exp) => (
+          <div class="fade-in relative pl-10 sm:pl-14">
+            <!-- Dot -->
+            <div class="timeline-dot" aria-hidden="true"></div>
+
+            <div class="card rounded-2xl p-6 sm:p-8">
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-1">
+                <h3 class="text-xl font-bold text-[#f1f5f9]">{exp.company}</h3>
+                <span class="font-mono text-sm text-accent shrink-0">{exp.period}</span>
+              </div>
+              <p class="text-accent/75 font-medium text-sm mb-1">{exp.role}</p>
+              {exp.meta && (
+                <p class="text-[#94a3b8] text-xs mb-4 font-mono">{exp.meta}</p>
+              )}
+              <ul class="space-y-2.5 mt-4 border-t border-white/5 pt-4">
+                {exp.highlights.map((h) => (
+                  <li class="flex items-start gap-2.5 text-[#94a3b8] text-sm">
+                    <span class="text-accent mt-0.5 shrink-0 font-mono">›</span>
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .timeline-line {
+    position: absolute;
+    left: 1.125rem;
+    top: 1.75rem;
+    bottom: 2rem;
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      rgba(56, 189, 248, 0.45),
+      rgba(56, 189, 248, 0.1) 80%,
+      transparent
+    );
+  }
+
+  @media (min-width: 640px) {
+    .timeline-line { left: 1.625rem; }
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: calc(1.125rem - 5px);
+    top: 2rem;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #38bdf8;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.7), 0 0 20px rgba(56, 189, 248, 0.3);
+  }
+
+  @media (min-width: 640px) {
+    .timeline-dot { left: calc(1.625rem - 5px); }
+  }
+</style>

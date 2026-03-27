@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ─────────────────────────────────────────────── */
+
+body {
+  background-color: #0a0e1a;
+  color: #f1f5f9;
+  font-family: 'Inter', system-ui, sans-serif;
+  /* Subtle dot-grid texture */
+  background-image: radial-gradient(rgba(56, 189, 248, 0.055) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* ─── Utilities ─────────────────────────────────────────── */
+
+.text-text-primary  { color: #f1f5f9; }
+.text-text-secondary { color: #94a3b8; }
+
+/* ─── Card ──────────────────────────────────────────────── */
+
+.card {
+  background: #111827;
+  border: 1px solid rgba(56, 189, 248, 0.08);
+  box-shadow:
+    0 0 24px rgba(56, 189, 248, 0.04),
+    0 1px 3px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.card:hover {
+  border-color: rgba(56, 189, 248, 0.2);
+  box-shadow:
+    0 0 32px rgba(56, 189, 248, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* ─── Fade-in animation ─────────────────────────────────── */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Prose (blog) ──────────────────────────────────────── */
+
+.prose {
+  color: #cbd5e1;
+  line-height: 1.85;
+  font-size: 1.0625rem;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  color: #f1f5f9;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 2.25em;
+  margin-bottom: 0.75em;
+}
+
+.prose h1 { font-size: 2rem; }
+.prose h2 { font-size: 1.5rem; }
+.prose h3 { font-size: 1.2rem; }
+
+.prose p {
+  margin-bottom: 1.4em;
+}
+
+.prose a {
+  color: #38bdf8;
+  text-decoration: underline;
+  text-decoration-color: rgba(56, 189, 248, 0.35);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s;
+}
+
+.prose a:hover {
+  text-decoration-color: #38bdf8;
+}
+
+.prose strong {
+  color: #f1f5f9;
+  font-weight: 600;
+}
+
+.prose em {
+  color: #e2e8f0;
+}
+
+/* Inline code */
+.prose :not(pre) > code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875em;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.08);
+  padding: 0.15em 0.4em;
+  border-radius: 5px;
+  border: 1px solid rgba(56, 189, 248, 0.15);
+}
+
+/* Code blocks via Shiki */
+.prose pre,
+.prose .astro-code {
+  background: #0d1117 !important;
+  border: 1px solid rgba(56, 189, 248, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 1.75em 0;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.prose pre code {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  color: inherit;
+  font-size: 1em;
+}
+
+/* Lists */
+.prose ul {
+  list-style: none;
+  padding-left: 1.5em;
+  margin-bottom: 1.4em;
+}
+
+.prose ul li {
+  position: relative;
+  margin-bottom: 0.5em;
+}
+
+.prose ul li::before {
+  content: '›';
+  position: absolute;
+  left: -1.3em;
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.prose ol {
+  list-style: decimal;
+  padding-left: 1.5em;
+  margin-bottom: 1.4em;
+}
+
+.prose ol li {
+  margin-bottom: 0.5em;
+  padding-left: 0.25em;
+  color: #cbd5e1;
+}
+
+.prose blockquote {
+  border-left: 3px solid rgba(56, 189, 248, 0.45);
+  padding-left: 1.25em;
+  margin-left: 0;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.prose hr {
+  border: none;
+  border-top: 1px solid rgba(56, 189, 248, 0.12);
+  margin: 2.5em 0;
+}
+
+/* Shiki global overrides */
+.astro-code {
+  border-radius: 12px;
+  border: 1px solid rgba(56, 189, 248, 0.1) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
