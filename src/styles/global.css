@@ -9,7 +9,7 @@ body {
   color: #f1f5f9;
   font-family: 'Inter', system-ui, sans-serif;
   /* Subtle dot-grid texture */
-  background-image: radial-gradient(rgba(56, 189, 248, 0.055) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(61, 220, 132, 0.055) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
@@ -22,17 +22,17 @@ body {
 
 .card {
   background: #111827;
-  border: 1px solid rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(61, 220, 132, 0.08);
   box-shadow:
-    0 0 24px rgba(56, 189, 248, 0.04),
+    0 0 24px rgba(61, 220, 132, 0.04),
     0 1px 3px rgba(0, 0, 0, 0.5);
   transition: border-color 0.25s, box-shadow 0.25s;
 }
 
 .card:hover {
-  border-color: rgba(56, 189, 248, 0.2);
+  border-color: rgba(61, 220, 132, 0.2);
   box-shadow:
-    0 0 32px rgba(56, 189, 248, 0.08),
+    0 0 32px rgba(61, 220, 132, 0.08),
     0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
@@ -77,15 +77,15 @@ body {
 }
 
 .prose a {
-  color: #38bdf8;
+  color: #3ddc84;
   text-decoration: underline;
-  text-decoration-color: rgba(56, 189, 248, 0.35);
+  text-decoration-color: rgba(61, 220, 132, 0.35);
   text-underline-offset: 3px;
   transition: text-decoration-color 0.2s;
 }
 
 .prose a:hover {
-  text-decoration-color: #38bdf8;
+  text-decoration-color: #3ddc84;
 }
 
 .prose strong {
@@ -101,18 +101,18 @@ body {
 .prose :not(pre) > code {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.875em;
-  color: #38bdf8;
-  background: rgba(56, 189, 248, 0.08);
+  color: #3ddc84;
+  background: rgba(61, 220, 132, 0.08);
   padding: 0.15em 0.4em;
   border-radius: 5px;
-  border: 1px solid rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(61, 220, 132, 0.15);
 }
 
 /* Code blocks via Shiki */
 .prose pre,
 .prose .astro-code {
   background: #0d1117 !important;
-  border: 1px solid rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(61, 220, 132, 0.1);
   border-radius: 12px;
   padding: 1.5rem;
   overflow-x: auto;
@@ -146,7 +146,7 @@ body {
   content: '›';
   position: absolute;
   left: -1.3em;
-  color: #38bdf8;
+  color: #3ddc84;
   font-weight: 600;
 }
 
@@ -163,7 +163,7 @@ body {
 }
 
 .prose blockquote {
-  border-left: 3px solid rgba(56, 189, 248, 0.45);
+  border-left: 3px solid rgba(61, 220, 132, 0.45);
   padding-left: 1.25em;
   margin-left: 0;
   color: #94a3b8;
@@ -172,13 +172,13 @@ body {
 
 .prose hr {
   border: none;
-  border-top: 1px solid rgba(56, 189, 248, 0.12);
+  border-top: 1px solid rgba(61, 220, 132, 0.12);
   margin: 2.5em 0;
 }
 
 /* Shiki global overrides */
 .astro-code {
   border-radius: 12px;
-  border: 1px solid rgba(56, 189, 248, 0.1) !important;
+  border: 1px solid rgba(61, 220, 132, 0.1) !important;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
 }

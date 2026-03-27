@@ -6,7 +6,7 @@ export default {
       colors: {
         background: '#0a0e1a',
         surface: '#111827',
-        accent: '#38bdf8',
+        accent: '#3ddc84',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
