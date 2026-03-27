@@ -2,8 +2,12 @@
 ---
 
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden px-4">
-  <!-- Ambient glow background -->
-  <div class="hero-glow" aria-hidden="true"></div>
+  <!-- Animated background blobs -->
+  <div class="blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
 
   <div class="relative z-10 max-w-4xl mx-auto text-center">
     <!-- Eyebrow -->
@@ -50,20 +54,59 @@
 </section>
 
 <style>
-  .hero-glow {
+  .blobs {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background:
-      radial-gradient(ellipse 65% 55% at 15% 65%, rgba(61, 220, 132, 0.08) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 65% at 85% 25%, rgba(61, 220, 132, 0.05) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 40% at 50% 50%, rgba(61, 220, 132, 0.03) 0%, transparent 70%);
-    animation: heroShift 12s ease-in-out infinite alternate;
+    overflow: hidden;
   }
 
-  @keyframes heroShift {
-    from { opacity: 0.6; transform: scale(1); }
-    to   { opacity: 1;   transform: scale(1.04); }
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    background: #3ddc84;
+    filter: blur(90px);
+    opacity: 0.07;
+  }
+
+  .blob-1 {
+    width: 55%;
+    height: 65%;
+    top: 10%;
+    left: -15%;
+    animation: drift1 18s ease-in-out infinite alternate;
+  }
+
+  .blob-2 {
+    width: 45%;
+    height: 55%;
+    top: -20%;
+    right: -5%;
+    animation: drift2 22s ease-in-out infinite alternate;
+  }
+
+  .blob-3 {
+    width: 35%;
+    height: 40%;
+    bottom: 0%;
+    right: 20%;
+    opacity: 0.04;
+    animation: drift3 16s ease-in-out infinite alternate;
+  }
+
+  @keyframes drift1 {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(18%, 12%) scale(1.1); }
+  }
+
+  @keyframes drift2 {
+    from { transform: translate(0, 0) scale(1.05); }
+    to   { transform: translate(-12%, 18%) scale(0.95); }
+  }
+
+  @keyframes drift3 {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(-20%, -15%) scale(1.15); }
   }
 
   .cursor {
