@@ -19,14 +19,8 @@ const stats = [
 
       <!-- Text -->
       <div class="fade-in space-y-5">
-        <div class="flex items-center gap-4 mb-2">
-          <div class="photo-wrap">
-            <img src="/pic.png" alt="Rene Ferrari" class="photo-img" />
-          </div>
-          <div>
-            <p class="text-[#f1f5f9] font-semibold">Rene Ferrari</p>
-            <p class="text-[#94a3b8] text-sm">Linz, Austria</p>
-          </div>
+        <div class="photo-wrap mb-6">
+          <img src="/pic.png" alt="Rene Ferrari" class="photo-img" />
         </div>
         <p class="text-[#94a3b8] text-lg leading-relaxed">
           I'm an Android Engineer with <span class="text-[#f1f5f9] font-semibold">8+ years of experience</span>,
@@ -61,13 +55,12 @@ const stats = [
 
 <style>
   .photo-wrap {
-    width: 72px;
-    height: 72px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     overflow: hidden;
-    flex-shrink: 0;
-    border: 2px solid rgba(61, 220, 132, 0.3);
-    box-shadow: 0 0 16px rgba(61, 220, 132, 0.15);
+    border: 2px solid rgba(61, 220, 132, 0.25);
+    box-shadow: 0 0 32px rgba(61, 220, 132, 0.1), 0 4px 16px rgba(0, 0, 0, 0.4);
   }
 
   .photo-img {
